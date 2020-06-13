@@ -1,4 +1,4 @@
-package wizut.tpsi.ogloszenia.web;
+package wizut.bihdwi.ciuszki.web;
 
 public class OfferSorter {
     String sortOffer;

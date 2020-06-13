@@ -1,4 +1,4 @@
-package wizut.tpsi.ogloszenia.web;
+package wizut.bihdwi.ciuszki.web;
 
 public class OfferFilter {
     Integer manufacturerId;

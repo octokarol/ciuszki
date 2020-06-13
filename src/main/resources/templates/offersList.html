@@ -32,7 +32,7 @@
             <form action="" class="form-inline" id="offerFilterForm" method="get" th:object="${offerFilter}">
                 <select class="form-control" th:field="*{manufacturerId}">
                     <option value="">Marka</option>
-                    <option th:each="manufacturer : ${itemManufacturers" th:text="${manufacturer.name}"
+                    <option th:each="manufacturer : ${itemManufacturers}" th:text="${manufacturer.name}"
                             th:value="${manufacturer.id}"></option>
                 </select>
                 <select class="form-control" th:field="*{modelId}">
@@ -50,6 +50,7 @@
             <th>Marka</th>
             <th>Model</th>
             <th>Rocznik</th>
+            <th>Rozmiar</th>
             <th>Cena</th>
             <th>Data dodania</th>
             <th></th>
@@ -61,6 +62,7 @@
             <td th:text="${offer.model.manufacturer.name}"></td>
             <td th:text="${offer.model.name}"></td>
             <td th:text="${offer.year}"></td>
+            <td th:text="${offer.model.sizing.getSize()}"></td>
             <td class="text-right" th:attr="data-order=${offer.price}">
                 <span th:text="${#numbers.formatDecimal(offer.price, 0, 'WHITESPACE', 0,'COMMA')}"></span>
                 zł

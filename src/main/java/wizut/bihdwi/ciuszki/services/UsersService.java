@@ -1,7 +1,7 @@
-package wizut.tpsi.ogloszenia.services;
+package wizut.bihdwi.ciuszki.services;
 
 import org.springframework.stereotype.Service;
-import wizut.tpsi.ogloszenia.jpa.User;
+import wizut.bihdwi.ciuszki.jpa.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

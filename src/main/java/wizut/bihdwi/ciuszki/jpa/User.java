@@ -1,4 +1,4 @@
-package wizut.tpsi.ogloszenia.jpa;
+package wizut.bihdwi.ciuszki.jpa;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

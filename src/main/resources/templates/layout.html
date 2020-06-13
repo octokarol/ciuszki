@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title layout:title-pattern="Ciuszki4U - $CONTENT_TITLE">Furka4U</title>
+    <title layout:title-pattern="Ciuszki4U - $CONTENT_TITLE">Ciuszki4U</title>
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
 
@@ -21,10 +21,10 @@
 <body>
 <div class="container">
     <div class="page-header">
-        <img height="86pt" src="https://upload.wikimedia.org/wikipedia/commons/2/23/BlondeWomanDrivingCar.svg"
+        <img height="86pt" src="/img/logo.png"
              style="float: right"/>
 
-        <h1>Furka4U <small>Najlepsze ciuszki w necie</small></h1>
+        <h1>Ciuszki4U <small>Najlepsze ciuszki w necie</small></h1>
         <h4>
             <a href="/">Przeglądaj ogłoszenia</a> |
             <a href="/login" th:if="${session.currentUser == null}">Zaloguj się</a>

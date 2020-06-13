@@ -1,4 +1,4 @@
-package wizut.tpsi.ogloszenia.jpa;
+package wizut.bihdwi.ciuszki.jpa;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,7 +17,7 @@ public class SizingType {
     @NotNull
     @Size(max = 30)
     @Column(name = "size")
-    private Integer size;
+    private String size;
 
 
     @NotNull
@@ -53,7 +53,7 @@ public class SizingType {
     public SizingType() {
     }
 
-    public SizingType(Integer id, @NotNull @Size(max = 30) Integer size, @NotNull @Size(max = 30) Float size_us, @NotNull @Size(max = 30) Float size_uk, @NotNull @Size(max = 30) Float size_eu, @NotNull @Size(max = 30) Float size_cm, @NotNull @Size(max = 30) Float size_br, @NotNull @Size(max = 30) Float size_cn) {
+    public SizingType(Integer id, @NotNull @Size(max = 30) String size, @NotNull @Size(max = 30) Float size_us, @NotNull @Size(max = 30) Float size_uk, @NotNull @Size(max = 30) Float size_eu, @NotNull @Size(max = 30) Float size_cm, @NotNull @Size(max = 30) Float size_br, @NotNull @Size(max = 30) Float size_cn) {
         this.id = id;
         this.size = size;
         this.size_us = size_us;
@@ -72,11 +72,11 @@ public class SizingType {
         this.id = id;
     }
 
-    public Integer getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(Integer size) {
+    public void setSize(String size) {
         this.size = size;
     }
 

@@ -1,4 +1,4 @@
-package wizut.tpsi.ogloszenia;
+package wizut.bihdwi.ciuszki;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

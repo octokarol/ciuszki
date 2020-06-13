@@ -1,4 +1,4 @@
-package wizut.tpsi.ogloszenia.controller;
+package wizut.bihdwi.ciuszki.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import wizut.tpsi.ogloszenia.jpa.ItemManufacturer;
-import wizut.tpsi.ogloszenia.jpa.ItemModel;
-import wizut.tpsi.ogloszenia.jpa.Offer;
-import wizut.tpsi.ogloszenia.jpa.User;
-import wizut.tpsi.ogloszenia.services.OffersService;
-import wizut.tpsi.ogloszenia.web.OfferFilter;
+import wizut.bihdwi.ciuszki.jpa.ItemModel;
+import wizut.bihdwi.ciuszki.jpa.Offer;
+import wizut.bihdwi.ciuszki.jpa.User;
+import wizut.bihdwi.ciuszki.jpa.ItemManufacturer;
+import wizut.bihdwi.ciuszki.services.OffersService;
+import wizut.bihdwi.ciuszki.web.OfferFilter;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;

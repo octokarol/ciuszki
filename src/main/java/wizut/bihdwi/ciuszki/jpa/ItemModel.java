@@ -1,4 +1,4 @@
-package wizut.tpsi.ogloszenia.jpa;
+package wizut.bihdwi.ciuszki.jpa;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -33,7 +33,6 @@ public class ItemModel {
     @Column(name = "colour")
     private String colour;
 
-    @NotNull
     @Size(max = 30)
     @Column(name = "cut")
     private String cut;

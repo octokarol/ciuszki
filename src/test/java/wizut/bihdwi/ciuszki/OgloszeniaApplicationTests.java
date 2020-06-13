@@ -1,4 +1,4 @@
-package wizut.tpsi.ogloszenia;
+package wizut.bihdwi.ciuszki;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

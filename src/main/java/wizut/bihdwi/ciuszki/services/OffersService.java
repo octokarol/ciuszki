@@ -1,10 +1,10 @@
-package wizut.tpsi.ogloszenia.services;
+package wizut.bihdwi.ciuszki.services;
 
 import org.springframework.stereotype.Service;
-import wizut.tpsi.ogloszenia.jpa.ItemManufacturer;
-import wizut.tpsi.ogloszenia.jpa.ItemModel;
-import wizut.tpsi.ogloszenia.jpa.Offer;
-import wizut.tpsi.ogloszenia.jpa.SizingType;
+import wizut.bihdwi.ciuszki.jpa.ItemModel;
+import wizut.bihdwi.ciuszki.jpa.Offer;
+import wizut.bihdwi.ciuszki.jpa.SizingType;
+import wizut.bihdwi.ciuszki.jpa.ItemManufacturer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

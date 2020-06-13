@@ -77,7 +77,7 @@
             <label class="col-sm-2 control-label">Model:</label>
             <div class="col-sm-10">
                 <select class="form-control" th:field="*{model.id}">
-                    <option th:each="cm : ${carModels}" th:text="|${cm.manufacturer.name} ${cm.name}|"
+                    <option th:each="cm : ${itemModels}" th:text="|${cm.manufacturer.name} ${cm.name}|"
                             th:value="${cm.id}"></option>
                 </select>
             </div>

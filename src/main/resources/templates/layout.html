@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title layout:title-pattern="Ciuszki4U - $CONTENT_TITLE">Furka4U</title>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="http://cdn.datatables.net/plug-ins/3cfcc339e89/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet"
+          type="text/css">
+    <script charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js" type="text/javascript"></script>
+    <script charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"
+            type="text/javascript"></script>
+    <script charset="utf8" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"
+            type="text/javascript"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <img height="86pt" src="https://upload.wikimedia.org/wikipedia/commons/2/23/BlondeWomanDrivingCar.svg"
+             style="float: right"/>
+
+        <h1>Furka4U <small>Najlepsze ciuszki w necie</small></h1>
+        <h4>
+            <a href="/">Przeglądaj ogłoszenia</a> |
+            <a href="/login" th:if="${session.currentUser == null}">Zaloguj się</a>
+            <span th:if="${session.currentUser != null}">
+                <a href="/newoffer">Dodaj ogłoszenie</a> |
+                <a href="/logout">Wyloguj się</a>
+            </span>
+        </h4>
+        <h5>
+            <div class="text=left" th:if="${session.currentUser != null}">Witaj <span
+                    th:text="${session.currentUser.username}"></span></div>
+        </h5>
+    </div>
+
+    <div layout:fragment="content">
+        Tu będzie wstawiona właściwa zawartość widoku.
+    </div>
+</div>
+</body>
+</html>

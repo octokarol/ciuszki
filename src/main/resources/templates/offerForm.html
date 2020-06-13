@@ -20,92 +20,71 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Rocznik:</label>
+            <label class="col-sm-2 control-label">Rok wprowadzenia na rynek:</label>
             <div class="col-sm-4">
                 <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{year}')?'has-error':''}">
                     <input class="form-control" th:field="*{year}" type="number"/>
                     <label style="color: red;" th:if="${#fields.hasErrors('*{year}')}">Proszę podać poprawny rok (min.
-                        1900)</label>
+                        2000)</label>
                 </div>
             </div>
-            <label class="col-sm-2 control-label">Przebieg:</label>
+            <label class="col-sm-2 control-label">Stan:</label>
             <div class="col-sm-4">
-                <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{mileage}')?'has-error':''}">
-                    <input class="form-control" th:field="*{mileage}" type="number"/>
-                    <label style="color: red;" th:if="${#fields.hasErrors('*{mileage}')}">Proszę podać poprawny
-                        przebieg</label>
+                <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{condition}')?'has-error':''}">
+                    <select class="form-control" th:field="*{condition}">
+                        <option value="doskonały">doskonały</option>
+                        <option value="bardzo dobry">bardzo dobry</option>
+                        <option value="dobry">dobry</option>
+                        <option value="poprawny">poprawny</option>
+                    </select>
+                    <label style="color: red;" th:if="${#fields.hasErrors('*{condition}')}">Proszę podać poprawny
+                        stan</label>
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Pojemność silnika:</label>
-            <div class="col-sm-4">
-                <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{engineSize}')?'has-error':''}">
-                    <input class="form-control" th:field="*{engineSize}" type="number"/>
-                    <label style="color: red;" th:if="${#fields.hasErrors('*{engineSize}')}">Proszę podać właściwą
-                        wielkość silnika</label>
-                </div>
-            </div>
-            <label class="col-sm-2 control-label">Moc silnika:</label>
-            <div class="col-sm-4" th:classappend="${#fields.hasErrors('*{enginePower}')?'has-error':''}">
-                <input class="form-control" th:field="*{enginePower}" type="number"/>
-                <label style="color: red;" th:if="${#fields.hasErrors('*{enginePower}')}">Proszę podać właściwą moc
-                    silnika</label>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Liczba drzwi:</label>
-            <div class="col-sm-4">
-                <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{doors}')?'has-error':''}">
-                    <input class="form-control" th:field="*{doors}" type="number"/>
-                    <label style="color: red;" th:if="${#fields.hasErrors('*{doors}')}">Proszę podać liczbe drzwi (min.
-                        1, maks. 5)</label>
-                </div>
 
-            </div>
-            <label class="col-sm-2 control-label">Kolor:</label>
-            <div class="col-sm-4">
-                <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{colour}')?'has-error':''}">
-                    <input class="form-control" th:field="*{colour}" type="text"/>
-                    <label style="color: red;" th:if="${#fields.hasErrors('*{colour}')}">Proszę podać kolor (min. 3
-                        znaki, maks. 30)</label>
-                </div>
-
-            </div>
-        </div>
-        <div class="form-group">
             <label class="col-sm-2 control-label">Model:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
                 <select class="form-control" th:field="*{model.id}">
-                    <option th:each="cm : ${itemModels}" th:text="|${cm.manufacturer.name} ${cm.name}|"
-                            th:value="${cm.id}"></option>
+                    <option th:each="cm : ${itemModels}" th:text="${cm.name}"
+                            th:value="${cm.id}">
+                    </option>
                 </select>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Nadwozie:</label>
-            <div class="col-sm-4">
-                <select class="form-control" th:field="*{bodyStyle.id}">
-                    <option th:each="bs : ${bodyStyles}" th:text="${bs.name}" th:value="${bs.id}"></option>
-                </select>
-            </div>
-            <label class="col-sm-2 control-label">Rodzaj paliwa:</label>
-            <div class="col-sm-4">
-                <select class="form-control" th:field="*{fuelType.id}">
-                    <option th:each="ft : ${fuelTypes}" th:text="${ft.name}" th:value="${ft.id}"></option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
+
             <label class="col-sm-2 control-label">Cena:</label>
             <div class="col-sm-4">
                 <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{price}')?'has-error':''}">
                     <input class="form-control" th:field="*{price}" type="number"/>
-                    <label style="color: red;" th:if="${#fields.hasErrors('*{doors}')}">Proszę podać prawidłową
-                        cenę</label>
+                    <label style="color: red;" th:if="${#fields.hasErrors('*{price}')}">Proszę podać poprawną cenę</label>
                 </div>
+            </div>
+
 
             </div>
+
+
+
+            <div class="form-group">
+            <label class="col-sm-2 control-label">Rozmiar:</label>
+            <div class="col-sm-4">
+                <select class="form-control" th:field="*{model.sizing.id}">
+                    <option th:each="cm : ${sizingTypes}" th:text="${cm.size}"
+                            th:value="${cm.id}">
+                    </option>
+                </select>
+            </div>
+            <label class="col-sm-2 control-label">Producent:</label>
+
+                <div class="col-sm-4">
+                <select class="form-control" th:field="*{model.manufacturer.id}">
+                    <option th:each="cm : ${itemManufacturers}" th:text="${cm.name}"
+                            th:value="${cm.id}">
+                    </option>
+                </select>
+
+                </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Opis:</label>

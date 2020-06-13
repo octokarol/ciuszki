@@ -20,35 +20,51 @@
         <tr>
             <th>Marka:</th>
             <td th:text="*{model.manufacturer.name}"></td>
-            <th>Nadwozie:</th>
-            <td th:text="|*{bodyStyle.name} *{doors}D|"></td>
-            <th>Rok produkcji:</th>
-            <td th:text="*{year}"></td>
+            <th>Pochodzenie marki:</th>
+            <td th:text="*{model.manufacturer.origin}"></td>
         </tr>
+
         <tr>
-            <th>Przebieg:</th>
-            <td th:text="*{mileage}"></td>
+            <th th:if="*{!model.getIs_shoe()}">Rozmiar:</th>
+            <td th:if="*{!model.getIs_shoe()}" th:text="*{model.sizing.size}" ></td>
+            <div th:if="*{model.getIs_shoe()}">
+                <th>rozmiar US:</th>
+                <td th:text="*{model.sizing.size_us}"></td>
+                <th>rozmiar UK:</th>
+                <td th:text="*{model.sizing.size_uk}"></td>
+                <th>rozmiar EU:</th>
+                <td th:text="*{model.sizing.size_eu}"></td>
+                <th>rozmiar CM:</th>
+                <td th:text="*{model.sizing.size_cm}"></td>
+                <th>rozmiar BR:</th>
+                <td th:text="*{model.sizing.size_br}"></td>
+                <th>rozmiar CN:</th>
+                <td th:text="*{model.sizing.size_cn}"></td>
+            </div>
+        </tr>
+
+        <tr>
             <th>Model:</th>
             <td th:text="*{model.name}"></td>
             <th>Kolor:</th>
-            <td th:text="*{colour}"></td>
+            <td th:text="*{model.colour}"></td>
+            <th>Cena retailowa (w dniu premiery):</th>
+            <td th:text="*{model.retail_price}"></td>
+            <th>Krój:</th>
+            <td th:text="*{model.cut}"></td>
+            <th>Płeć:</th>
+            <td th:text="*{model.gender}"></td>
         </tr>
-        <tr>
-            <th>Pojemność silnika:</th>
-            <td th:text="*{engineSize}"></td>
-            <th>Moc silnika:</th>
-            <td th:text="*{enginePower}"></td>
-            <th>Rodzaj paliwa:</th>
-            <td th:text="*{fuelType.name}"></td>
-        </tr>
+
         <tr>
             <th>Data dodania:</th>
             <td th:text="*{dateTime}"></td>
-            <th></th>
-            <td></td>
-            <th></th>
-            <td></td>
+            <th>Stan przedmiotu:</th>
+            <td th:text="*{condition}"></td>
+            <th>Rok zakupu:</th>
+            <td th:text="*{year}"></td>
         </tr>
+
     </table>
     <div class="well" th:text="${offer.description}">
     </div>

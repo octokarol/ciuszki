@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import wizut.bihdwi.ciuszki.jpa.ItemModel;
-import wizut.bihdwi.ciuszki.jpa.Offer;
-import wizut.bihdwi.ciuszki.jpa.User;
-import wizut.bihdwi.ciuszki.jpa.ItemManufacturer;
+import wizut.bihdwi.ciuszki.jpa.*;
 import wizut.bihdwi.ciuszki.services.OffersService;
 import wizut.bihdwi.ciuszki.web.OfferFilter;
 
@@ -58,21 +55,30 @@ public class HomeController {
     public String newOfferForm(Model model, Offer offer, HttpSession session) {
         if (session.getAttribute("currentUser") != null) {
             List<ItemModel> itemModels = offersService.getItemModels();
+            List<ItemManufacturer> itemManufacturers = offersService.getItemManufacturers();
+            List<SizingType> sizingTypes = offersService.getSizingTypes();
             model.addAttribute("header", "Nowe ogłoszenie");
             model.addAttribute("action", "/newoffer");
             model.addAttribute("itemModels", itemModels);
+            model.addAttribute("itemManufacturers", itemManufacturers);
+            model.addAttribute("sizingTypes",sizingTypes);
             return "offerForm";
         }
-        return "redirect:/offersList/1";
+        return "redirect:/offersList";
     }
 
     @PostMapping("/newoffer")
     public String saveNewOffer(Model model, @Valid Offer offer, BindingResult binding) {
         if (binding.hasErrors()) {
             List<ItemModel> itemModels = offersService.getItemModels();
+            List<ItemManufacturer> itemManufacturers = offersService.getItemManufacturers();
+            List<SizingType> sizingTypes = offersService.getSizingTypes();
             model.addAttribute("header", "Nowe ogłoszenie");
             model.addAttribute("action", "/newoffer");
             model.addAttribute("itemModels", itemModels);
+            model.addAttribute("itemManufacturers", itemManufacturers);
+            model.addAttribute("sizingTypes",sizingTypes);
+
             return "offerForm";
         }
         offer.setDateTime(LocalDate.now());
@@ -90,7 +96,7 @@ public class HomeController {
                 return "deleteOffer";
             }
         }
-        return "redirect:/offersList/1";
+        return "redirect:/offersList";
     }
 
     @GetMapping("/editoffer/{id}")
@@ -100,8 +106,12 @@ public class HomeController {
             User loggedUser = (User) session.getAttribute("currentUser");
             if (loggedUser.getId() == offersService.getOffer(id).getUserId()) {
                 List<ItemModel> itemModels = offersService.getItemModels();
+                List<ItemManufacturer> itemManufacturers = offersService.getItemManufacturers();
+                List<SizingType> sizingTypes = offersService.getSizingTypes();
 
                 model.addAttribute("itemModels", itemModels);
+                model.addAttribute("itemManufacturers", itemManufacturers);
+                model.addAttribute("sizingTypes",sizingTypes);
                 Offer offer = offersService.getOffer(id);
                 model.addAttribute("offer", offer);
                 model.addAttribute("header", "Edycja ogłoszenia");
@@ -109,7 +119,7 @@ public class HomeController {
                 return "offerForm";
             }
         }
-        return "redirect:/offersList/1";
+        return "redirect:/offersList";
     }
 
     @PostMapping("/editoffer/{id}")
@@ -119,8 +129,11 @@ public class HomeController {
             model.addAttribute("action", "/editoffer/" + id);
 
             List<ItemModel> itemModels = offersService.getItemModels();
-
+            List<ItemManufacturer> itemManufacturers = offersService.getItemManufacturers();
+            List<SizingType> sizingTypes = offersService.getSizingTypes();
             model.addAttribute("itemModels", itemModels);
+            model.addAttribute("itemManufacturers", itemManufacturers);
+            model.addAttribute("sizingTypes",sizingTypes);
             return "offerForm";
         }
         offersService.saveOffer(offer);

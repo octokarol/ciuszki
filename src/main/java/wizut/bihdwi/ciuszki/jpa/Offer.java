@@ -39,7 +39,6 @@ public class Offer {
 
 
     @NotNull
-    @Size(min = 0)
     @Column(name = "price")
     private Integer price;
 

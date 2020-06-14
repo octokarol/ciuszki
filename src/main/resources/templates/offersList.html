@@ -10,13 +10,12 @@
         $(document).ready(function () {
             $('#offerTable').DataTable(
                 {
-                    "order": [[5, "desc"]],
+                    "order": [[6, "desc"]],
                     "language": {
                         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Polish.json"
                     },
-                    "searching": false,
                     "columnDefs": [
-                        {"orderable": false, "targets": [0, 1, 2, 6]}
+                        {"orderable": false, "targets": [1, 2,7]}
                     ]
 
                 });
@@ -35,10 +34,6 @@
                     <option th:each="manufacturer : ${itemManufacturers}" th:text="${manufacturer.name}"
                             th:value="${manufacturer.id}"></option>
                 </select>
-                <select class="form-control" th:field="*{modelId}">
-                    <option value="">Model</option>
-                </select>
-
                 <input class="form-control" type="submit" value="Filtruj"/>
             </form>
         </div>

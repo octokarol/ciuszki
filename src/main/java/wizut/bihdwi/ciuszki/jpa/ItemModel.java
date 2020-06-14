@@ -19,10 +19,6 @@ public class ItemModel {
     private String name;
 
 
-    @NotNull
-    @Size(max = 30)
-    @Column(name = "gender")
-    private String gender;
 
     @NotNull
     @Size(max = 30)
@@ -30,16 +26,12 @@ public class ItemModel {
     private Boolean is_shoe;
 
 
-
-
-
     public ItemModel() {
     }
 
-    public ItemModel(Integer id, @NotNull @Size(max = 30) String name, @NotNull @Size(max = 30) String gender, @NotNull @Size(max = 30) Boolean is_shoe) {
+    public ItemModel(Integer id, @NotNull @Size(max = 30) String name, @NotNull @Size(max = 30) Boolean is_shoe) {
         this.id = id;
         this.name = name;
-        this.gender = gender;
         this.is_shoe = is_shoe;
     }
 
@@ -59,13 +51,6 @@ public class ItemModel {
         this.name = name;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
 
     public Boolean getIs_shoe() {
         return is_shoe;

@@ -44,7 +44,6 @@ public class Offer {
 
 
     @NotNull
-    @Size(max = 30)
     @Column(name = "retail_price")
     private Integer retail_price;
 
@@ -56,6 +55,12 @@ public class Offer {
     @Size(max = 30)
     @Column(name = "cut")
     private String cut;
+
+    @NotNull
+    @Size(max = 30)
+    @Column(name = "gender")
+    private String gender;
+
 
     @NotNull
     @JoinColumn(name = "item_model_id", referencedColumnName = "id")
@@ -85,7 +90,7 @@ public class Offer {
     public Offer() {
     }
 
-    public Offer(Integer id, @NotNull @Size(max = 255, min = 5) String title, LocalDate dateTime, @NotNull Integer year, @NotNull @Size(max = 30) String condition, @NotNull @Size(max = 65535, min = 5) String description, @NotNull Integer price, @NotNull @Size(max = 30) Integer retail_price, @NotNull @Size(max = 30) String colour, @Size(max = 30) String cut, @NotNull ItemModel model, @NotNull ItemManufacturer manufacturer, SizingType sizing, SizingTypeShoe shoeSizing, @NotNull Integer userId) {
+    public Offer(Integer id, @NotNull @Size(max = 255, min = 5) String title, LocalDate dateTime, @NotNull Integer year, @NotNull @Size(max = 30) String condition, @NotNull @Size(max = 65535, min = 5) String description, @NotNull Integer price, @NotNull Integer retail_price, @NotNull @Size(max = 30) String colour, @Size(max = 30) String cut, @NotNull @Size(max = 30) String gender, @NotNull ItemModel model, @NotNull ItemManufacturer manufacturer, SizingType sizing, SizingTypeShoe shoeSizing, @NotNull Integer userId) {
         this.id = id;
         this.title = title;
         this.dateTime = dateTime;
@@ -96,11 +101,20 @@ public class Offer {
         this.retail_price = retail_price;
         this.colour = colour;
         this.cut = cut;
+        this.gender = gender;
         this.model = model;
         this.manufacturer = manufacturer;
         this.sizing = sizing;
         this.shoeSizing = shoeSizing;
         this.userId = userId;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public Integer getId() {

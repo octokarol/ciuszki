@@ -19,8 +19,39 @@
                     maks. 255)</label>
             </div>
         </div>
+
         <div class="form-group">
-            <label class="col-sm-2 control-label">Rok wprowadzenia na rynek:</label>
+            <label class="col-sm-2 control-label">Kolor:</label>
+            <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{colour}')?'has-error':''}">
+                <input class="form-control" th:field="*{colour}" type="text"/>
+                <label style="color: red;" th:if="${#fields.hasErrors('*{colour}')}">Proszę podać kolor (max 30 znaków)</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Płeć:</label>
+            <div class="col-sm-4">
+                <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{gender}')?'has-error':''}">
+                    <select class="form-control" th:field="*{gender}">
+                        <option value="Kobieta">Kobieta</option>
+                        <option value="Mężczyzna">Mężczyzna</option>
+                    </select>
+                    <label style="color: red;" th:if="${#fields.hasErrors('*{gender}')}">Proszę podać poprawną płeć</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Krój:</label>
+            <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{cut}')?'has-error':''}">
+                <input class="form-control" th:field="*{cut}" type="text"/>
+                <label style="color: red;" th:if="${#fields.hasErrors('*{cut}')}">Proszę podać krój (max 30 znaków)</label>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Rok zakupu:</label>
             <div class="col-sm-4">
                 <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{year}')?'has-error':''}">
                     <input class="form-control" th:field="*{year}" type="number"/>
@@ -61,24 +92,24 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" th:field="*{model.is_shoe}" type="radio" name="isShoeRadios" id="shoeRadio" value=true checked>
-                <label class="form-check-label" for="shoeRadio">
-                    But:
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" th:field="*{model.is_shoe}" type="radio" name="isShoeRadios" id="otherClothRadio" value=false>
-                <label class="form-check-label" for="otherClothRadio">
-                    Inna rzecz:
-                </label>
-            </div>
-        </div>
+<!--        <div class="form-group">-->
+<!--            <div class="form-check">-->
+<!--                <input class="form-check-input" th:field="*{model.is_shoe}" type="radio" name="isShoeRadios" id="shoeRadio" value=true checked>-->
+<!--                <label class="form-check-label" for="shoeRadio">-->
+<!--                    But:-->
+<!--                </label>-->
+<!--            </div>-->
+<!--            <div class="form-check">-->
+<!--                <input class="form-check-input" th:field="*{model.is_shoe}" type="radio" name="isShoeRadios" id="otherClothRadio" value=false>-->
+<!--                <label class="form-check-label" for="otherClothRadio">-->
+<!--                    Inna rzecz:-->
+<!--                </label>-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="form-group">
             <label class="col-sm-2 control-label">Rozmiar:</label>
             <div class="col-sm-4">
-                <select class="form-control" th:field="*{model.sizing.id}">
+                <select class="form-control" th:field="*{sizing.id}">
                     <option th:each="cm : ${sizingTypes}" th:text="${cm.size}"
                             th:value="${cm.id}">
                     </option>
@@ -86,7 +117,7 @@
             </div>
             <label class="col-sm-2 control-label">Rozmiar buta:</label>
             <div class="col-sm-4">
-                <select class="form-control" th:field="*{model.shoeSizing.id}">
+                <select class="form-control" th:field="*{shoeSizing.id}">
                     <option th:each="cm : ${sizingTypesShoe}" th:text="${cm.size_eu}"
                             th:value="${cm.id}">
                     </option>
@@ -94,13 +125,25 @@
             </div>
             <label class="col-sm-2 control-label">Producent:</label>
             <div class="col-sm-4">
-                <select class="form-control" th:field="*{model.manufacturer.id}">
+                <select class="form-control" th:field="*{manufacturer.id}">
                     <option th:each="cm : ${itemManufacturers}" th:text="${cm.name}"
                             th:value="${cm.id}">
                     </option>
                 </select>
             </div>
         </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Cena detaliczna (w dniu zakupu):</label>
+            <div class="col-sm-10">
+                <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{retail_price}')?'has-error':''}">
+                    <input class="form-control" th:field="*{retail_price}" type="number"/>
+                    <label style="color: red;" th:if="${#fields.hasErrors('*{retail_price}')}">Proszę podać poprawną cenę detaliczną</label>
+                </div>
+            </div>
+        </div>
+
+
         <div class="form-group">
             <label class="col-sm-2 control-label">Opis:</label>
             <div class="col-sm-10">
@@ -112,6 +155,7 @@
 
             </div>
         </div>
+
         <div class="form-group">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
@@ -123,6 +167,8 @@
                 <a class="btn btn-default" href="/">Anuluj</a>
             </div>
         </div>
+
+
     </form>
 </section>
 </body>

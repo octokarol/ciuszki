@@ -26,8 +26,7 @@ create table item_model
 (
     id              integer auto_increment primary key,
     name            varchar(30),
-    is_shoe         bit,
-    gender          varchar(30)
+    is_shoe         bit
 );
 
 
@@ -51,6 +50,7 @@ create table offer
     retail_price    integer,
     colour          varchar(30),
     cut             varchar(30),
+    gender          varchar(30),
 
 
     manufacturer_id integer,

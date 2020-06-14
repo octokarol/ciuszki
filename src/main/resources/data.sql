@@ -36,7 +36,25 @@ insert into sizing_type_shoe(id,size_us,size_uk,size_eu,size_cm,size_br,size_jp)
 insert into sizing_type_shoe(id,size_us,size_uk,size_eu,size_cm,size_br,size_jp) values (13,13.5,12.5,47,30.2,45,30);
 insert into sizing_type_shoe(id,size_us,size_uk,size_eu,size_cm,size_br,size_jp) values (14,14,13,48,31,46,31);
 
-insert into item_model(id,name,is_shoe,gender) values (1, 'Płaszcz', false , 'M');
+insert into item_model(id,name,is_shoe) values (1, 'Kalosze', true);
+insert into item_model(id,name,is_shoe) values (2, 'Kapcie', true);
+insert into item_model(id,name,is_shoe) values (3, 'Mokasyny', true);
+insert into item_model(id,name,is_shoe) values (4, 'Trampki/Tenisówki', true);
+insert into item_model(id,name,is_shoe) values (5, 'Sportowe/Sneakersy', true);
+insert into item_model(id,name,is_shoe) values (6, 'Baleriny', true);
+insert into item_model(id,name,is_shoe) values (7, 'Oksfordki', true);
+insert into item_model(id,name,is_shoe) values (8, 'Bielizna', false);
+insert into item_model(id,name,is_shoe) values (9, 'Bluzki', false);
+insert into item_model(id,name,is_shoe) values (10, 'Płaszcze', false);
+insert into item_model(id,name,is_shoe) values (11, 'Kurtki', false);
+insert into item_model(id,name,is_shoe) values (12, 'Spodnie', false);
+insert into item_model(id,name,is_shoe) values (13, 'Swetry', false);
+insert into item_model(id,name,is_shoe) values (14, 'Odzież kąpielowa', false);
+insert into item_model(id,name,is_shoe) values (15, 'Koszule', false);
+insert into item_model(id,name,is_shoe) values (16, 'Marynarki/Garnitury', false);
+insert into item_model(id,name,is_shoe) values (17, 'Legginsy', false);
+insert into item_model(id,name,is_shoe) values (18, 'Spódnice', false);
+insert into item_model(id,name,is_shoe) values (19, 'Sukienki', false);
+insert into item_model(id,name,is_shoe) values (20, 'Shorty', false);
 
-
-insert into offer(id, title, date, year, condition, description, price, retail_price, colour, cut, manufacturer_id, sizing_id, shoe_sizing_id, item_model_id, user_id) values (1, 'płaszcz na zimę damski', '2017-07-25', 2014, 'dobry', 'swietny plaszczyk na zime', 100, 100, 'zielony', 'slim', 1, 1, 1, 1, 1)
+insert into offer(id, title, date, year, condition, description, price, retail_price, colour, cut, gender, manufacturer_id, sizing_id, shoe_sizing_id, item_model_id, user_id) values (1, 'płaszcz na zimę damski', '2017-07-25', 2014, 'dobry', 'swietny plaszczyk na zime', 100, 100, 'zielony', 'slim', 'Damski' , 1, 1, 1, 1, 1)

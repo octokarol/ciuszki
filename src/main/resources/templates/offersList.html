@@ -43,6 +43,7 @@
         <tr>
             <th>Tytuł ogłoszenia</th>
             <th>Typ</th>
+            <th>Płeć</th>
             <th>Marka</th>
             <th>Rok wprowadzenia:</th>
             <th>Rozmiar</th>
@@ -55,6 +56,7 @@
         <tr th:each="offer : ${offers}">
             <td th:text="${offer.title}"></td>
             <td th:text="${offer.model.name}"></td>
+            <td th:text="${offer.gender}"></td>
             <td th:text="${offer.manufacturer.name}"></td>
             <td th:text="${offer.year}"></td>
             <td th:if="${offer.model.is_shoe}" th:text="${offer.shoeSizing.size_eu}"></td>

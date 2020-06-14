@@ -35,13 +35,6 @@ public class OffersService {
         return em.createQuery("select itemModel from ItemModel itemModel order by itemModel.id", ItemModel.class).getResultList();
     }
 
-    public List<ItemModel> getItemModels(int manufacturerId) {
-        String jpql = "select im from ItemModel im where im.manufacturer.id = :id order by im.name";
-        TypedQuery<ItemModel> query = em.createQuery(jpql, ItemModel.class);
-        query.setParameter("id", manufacturerId);
-        return query.getResultList();
-    }
-
     public List<SizingType> getSizingTypes() {
         return em.createQuery("select sizingType from SizingType sizingType order by sizingType.id", SizingType.class).getResultList();
     }
@@ -67,7 +60,7 @@ public class OffersService {
     }
 
     public List<Offer> getOffersByManufacturer(int manufacturerId) {
-        String jpql = "select ofr from Offer ofr where ofr.model.manufacturer.id = :id order by ofr.id";
+        String jpql = "select ofr from Offer ofr where ofr.manufacturer.id = :id order by ofr.id";
         TypedQuery<Offer> query = em.createQuery(jpql, Offer.class);
         query.setParameter("id", manufacturerId);
         return query.getResultList();

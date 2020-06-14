@@ -19,21 +19,6 @@ public class ItemModel {
     private String name;
 
 
-
-    @NotNull
-    @Size(max = 30)
-    @Column(name = "retail_price")
-    private Integer retail_price;
-
-    @NotNull
-    @Size(max = 30)
-    @Column(name = "colour")
-    private String colour;
-
-    @Size(max = 30)
-    @Column(name = "cut")
-    private String cut;
-
     @NotNull
     @Size(max = 30)
     @Column(name = "gender")
@@ -44,34 +29,18 @@ public class ItemModel {
     @Column(name = "is_shoe")
     private Boolean is_shoe;
 
-    @NotNull
-    @JoinColumn(name = "manufacturer_id", referencedColumnName = "id")
-    @ManyToOne
-    private ItemManufacturer manufacturer;
 
-    @JoinColumn(name = "sizing_id", referencedColumnName = "id")
-    @ManyToOne
-    private SizingType sizing;
-
-    @JoinColumn(name = "shoe_sizing_id", referencedColumnName = "id")
-    @ManyToOne
-    private SizingTypeShoe shoeSizing;
 
 
 
     public ItemModel() {
     }
 
-    public ItemModel(Integer id, @NotNull @Size(max = 30) String name, @NotNull @Size(max = 30) Boolean is_shoe, @NotNull @Size(max = 30) Integer retail_price, @NotNull @Size(max = 30) String colour, @NotNull @Size(max = 30) String cut, @NotNull @Size(max = 30) String gender, @NotNull ItemManufacturer manufacturer, @NotNull SizingType sizing) {
+    public ItemModel(Integer id, @NotNull @Size(max = 30) String name, @NotNull @Size(max = 30) String gender, @NotNull @Size(max = 30) Boolean is_shoe) {
         this.id = id;
         this.name = name;
-        this.is_shoe = is_shoe;
-        this.retail_price = retail_price;
-        this.colour = colour;
-        this.cut = cut;
         this.gender = gender;
-        this.manufacturer = manufacturer;
-        this.sizing = sizing;
+        this.is_shoe = is_shoe;
     }
 
     public Integer getId() {
@@ -90,54 +59,6 @@ public class ItemModel {
         this.name = name;
     }
 
-    public Boolean getIs_shoe() {
-        return is_shoe;
-    }
-
-    public void setIs_shoe(Boolean is_shoe) {
-        this.is_shoe = is_shoe;
-    }
-
-    public Integer getRetail_price() {
-        return retail_price;
-    }
-
-    public void setRetail_price(Integer retail_price) {
-        this.retail_price = retail_price;
-    }
-
-    public String getColour() {
-        return colour;
-    }
-
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
-
-    public String getCut() {
-        return cut;
-    }
-
-    public void setCut(String cut) {
-        this.cut = cut;
-    }
-
-    public ItemManufacturer getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(ItemManufacturer manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-
-    public SizingType getSizing() {
-        return sizing;
-    }
-
-    public void setSizing(SizingType sizing) {
-        this.sizing = sizing;
-    }
-
     public String getGender() {
         return gender;
     }
@@ -145,11 +66,12 @@ public class ItemModel {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public SizingTypeShoe getShoeSizing() {
-        return shoeSizing;
+
+    public Boolean getIs_shoe() {
+        return is_shoe;
     }
 
-    public void setShoeSizing(SizingTypeShoe shoeSizing) {
-        this.shoeSizing = shoeSizing;
+    public void setIs_shoe(Boolean is_shoe) {
+        this.is_shoe = is_shoe;
     }
 }

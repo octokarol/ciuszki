@@ -42,10 +42,41 @@ public class Offer {
     @Column(name = "price")
     private Integer price;
 
+
+    @NotNull
+    @Size(max = 30)
+    @Column(name = "retail_price")
+    private Integer retail_price;
+
+    @NotNull
+    @Size(max = 30)
+    @Column(name = "colour")
+    private String colour;
+
+    @Size(max = 30)
+    @Column(name = "cut")
+    private String cut;
+
     @NotNull
     @JoinColumn(name = "item_model_id", referencedColumnName = "id")
     @ManyToOne
     private ItemModel model;
+
+
+    @NotNull
+    @JoinColumn(name = "manufacturer_id", referencedColumnName = "id")
+    @ManyToOne
+    private ItemManufacturer manufacturer;
+
+
+    @JoinColumn(name = "sizing_id", referencedColumnName = "id")
+    @ManyToOne
+    private SizingType sizing;
+
+    @JoinColumn(name = "shoe_sizing_id", referencedColumnName = "id")
+    @ManyToOne
+    private SizingTypeShoe shoeSizing;
+
 
     @NotNull
     @Column(name = "user_id")
@@ -54,7 +85,7 @@ public class Offer {
     public Offer() {
     }
 
-    public Offer(Integer id, @NotNull @Size(max = 255, min = 5) String title, LocalDate dateTime, @NotNull Integer year, @NotNull @Size(max = 30) String condition, @NotNull @Size(max = 65535, min = 5) String description, @NotNull @Size(min = 0) Integer price, @NotNull ItemModel model, @NotNull Integer userId) {
+    public Offer(Integer id, @NotNull @Size(max = 255, min = 5) String title, LocalDate dateTime, @NotNull Integer year, @NotNull @Size(max = 30) String condition, @NotNull @Size(max = 65535, min = 5) String description, @NotNull Integer price, @NotNull @Size(max = 30) Integer retail_price, @NotNull @Size(max = 30) String colour, @Size(max = 30) String cut, @NotNull ItemModel model, @NotNull ItemManufacturer manufacturer, SizingType sizing, SizingTypeShoe shoeSizing, @NotNull Integer userId) {
         this.id = id;
         this.title = title;
         this.dateTime = dateTime;
@@ -62,7 +93,13 @@ public class Offer {
         this.condition = condition;
         this.description = description;
         this.price = price;
+        this.retail_price = retail_price;
+        this.colour = colour;
+        this.cut = cut;
         this.model = model;
+        this.manufacturer = manufacturer;
+        this.sizing = sizing;
+        this.shoeSizing = shoeSizing;
         this.userId = userId;
     }
 
@@ -122,12 +159,60 @@ public class Offer {
         this.price = price;
     }
 
+    public Integer getRetail_price() {
+        return retail_price;
+    }
+
+    public void setRetail_price(Integer retail_price) {
+        this.retail_price = retail_price;
+    }
+
+    public String getColour() {
+        return colour;
+    }
+
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
+    public String getCut() {
+        return cut;
+    }
+
+    public void setCut(String cut) {
+        this.cut = cut;
+    }
+
     public ItemModel getModel() {
         return model;
     }
 
     public void setModel(ItemModel model) {
         this.model = model;
+    }
+
+    public ItemManufacturer getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(ItemManufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public SizingType getSizing() {
+        return sizing;
+    }
+
+    public void setSizing(SizingType sizing) {
+        this.sizing = sizing;
+    }
+
+    public SizingTypeShoe getShoeSizing() {
+        return shoeSizing;
+    }
+
+    public void setShoeSizing(SizingTypeShoe shoeSizing) {
+        this.shoeSizing = shoeSizing;
     }
 
     public Integer getUserId() {

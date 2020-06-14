@@ -41,9 +41,9 @@
     <table class="table table-striped table-bordered" id="offerTable">
         <thead>
         <tr>
-            <th>Tytuł</th>
+            <th>Tytuł ogłoszenia</th>
+            <th>Typ</th>
             <th>Marka</th>
-            <th>Model</th>
             <th>Rok wprowadzenia:</th>
             <th>Rozmiar</th>
             <th>Cena</th>
@@ -54,11 +54,11 @@
         <tbody>
         <tr th:each="offer : ${offers}">
             <td th:text="${offer.title}"></td>
-            <td th:text="${offer.model.manufacturer.name}"></td>
             <td th:text="${offer.model.name}"></td>
+            <td th:text="${offer.manufacturer.name}"></td>
             <td th:text="${offer.year}"></td>
-            <td th:if="${offer.model.is_shoe}" th:text="${offer.model.shoeSizing.size_eu}"></td>
-            <td th:unless="${offer.model.is_shoe}" th:text="${offer.model.sizing.getSize()}"></td>
+            <td th:if="${offer.model.is_shoe}" th:text="${offer.shoeSizing.size_eu}"></td>
+            <td th:unless="${offer.model.is_shoe}" th:text="${offer.sizing.getSize()}"></td>
             <td class="text-right" th:attr="data-order=${offer.price}">
                 <span th:text="${#numbers.formatDecimal(offer.price, 0, 'WHITESPACE', 0,'COMMA')}"></span>
                 zł

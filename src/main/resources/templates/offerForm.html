@@ -44,7 +44,7 @@
         </div>
         <div class="form-group">
 
-            <label class="col-sm-2 control-label">Model:</label>
+            <label class="col-sm-2 control-label">Typ:</label>
             <div class="col-sm-4">
                 <select class="form-control" th:field="*{model.id}">
                     <option th:each="cm : ${itemModels}" th:text="${cm.name}"
@@ -59,6 +59,20 @@
                     <input class="form-control" th:field="*{price}" type="number"/>
                     <label style="color: red;" th:if="${#fields.hasErrors('*{price}')}">Proszę podać poprawną cenę</label>
                 </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" th:field="*{model.is_shoe}" type="radio" name="isShoeRadios" id="shoeRadio" value=true checked>
+                <label class="form-check-label" for="shoeRadio">
+                    But:
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" th:field="*{model.is_shoe}" type="radio" name="isShoeRadios" id="otherClothRadio" value=false>
+                <label class="form-check-label" for="otherClothRadio">
+                    Inna rzecz:
+                </label>
             </div>
         </div>
         <div class="form-group">

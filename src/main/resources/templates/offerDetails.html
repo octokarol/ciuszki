@@ -19,27 +19,27 @@
     <table class="table" th:object="${offer}">
         <tr>
             <th>Marka:</th>
-            <td th:text="*{model.manufacturer.name}"></td>
+            <td th:text="*{manufacturer.name}"></td>
             <th>Pochodzenie marki:</th>
-            <td th:text="*{model.manufacturer.origin}"></td>
+            <td th:text="*{manufacturer.origin}"></td>
         </tr>
 
         <tr>
             <th th:if="*{!model.getIs_shoe()}">Rozmiar:</th>
-            <td th:if="*{!model.getIs_shoe()}" th:text="*{model.sizing.size}" ></td>
+            <td th:if="*{!model.getIs_shoe()}" th:text="*{sizing.size}" ></td>
             <div th:if="*{model.getIs_shoe()}">
                 <th>rozmiar US:</th>
-                <td th:text="*{model.shoeSizing.size_us}"></td>
+                <td th:text="*{shoeSizing.size_us}"></td>
                 <th>rozmiar UK:</th>
-                <td th:text="*{model.shoeSizing.size_uk}"></td>
+                <td th:text="*{shoeSizing.size_uk}"></td>
                 <th>rozmiar EU:</th>
-                <td th:text="*{model.shoeSizing.size_eu}"></td>
+                <td th:text="*{shoeSizing.size_eu}"></td>
                 <th>rozmiar CM:</th>
-                <td th:text="*{model.shoeSizing.size_cm}"></td>
+                <td th:text="*{shoeSizing.size_cm}"></td>
                 <th>rozmiar BR:</th>
-                <td th:text="*{model.shoeSizing.size_br}"></td>
+                <td th:text="*{shoeSizing.size_br}"></td>
                 <th>rozmiar CN:</th>
-                <td th:text="*{model.shoeSizing.size_jp}"></td>
+                <td th:text="*{shoeSizing.size_jp}"></td>
             </div>
         </tr>
 
@@ -47,11 +47,11 @@
             <th>Model:</th>
             <td th:text="*{model.name}"></td>
             <th>Kolor:</th>
-            <td th:text="*{model.colour}"></td>
+            <td th:text="*{colour}"></td>
             <th>Cena retailowa (w dniu premiery):</th>
-            <td th:text="*{model.retail_price}"></td>
+            <td th:text="*{retail_price}"></td>
             <th>Krój:</th>
-            <td th:text="*{model.cut}"></td>
+            <td th:text="*{cut}"></td>
             <th>Płeć:</th>
             <td th:text="*{model.gender}"></td>
         </tr>

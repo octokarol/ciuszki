@@ -57,11 +57,13 @@ public class HomeController {
             List<ItemModel> itemModels = offersService.getItemModels();
             List<ItemManufacturer> itemManufacturers = offersService.getItemManufacturers();
             List<SizingType> sizingTypes = offersService.getSizingTypes();
+            List<SizingTypeShoe> sizingTypesShoe = offersService.getShoeSizingTypes();
             model.addAttribute("header", "Nowe ogłoszenie");
             model.addAttribute("action", "/newoffer");
             model.addAttribute("itemModels", itemModels);
             model.addAttribute("itemManufacturers", itemManufacturers);
             model.addAttribute("sizingTypes",sizingTypes);
+            model.addAttribute("sizingTypesShoe",sizingTypesShoe);
             return "offerForm";
         }
         return "redirect:/offersList";
@@ -73,12 +75,13 @@ public class HomeController {
             List<ItemModel> itemModels = offersService.getItemModels();
             List<ItemManufacturer> itemManufacturers = offersService.getItemManufacturers();
             List<SizingType> sizingTypes = offersService.getSizingTypes();
+            List<SizingTypeShoe> sizingTypesShoe = offersService.getShoeSizingTypes();
             model.addAttribute("header", "Nowe ogłoszenie");
             model.addAttribute("action", "/newoffer");
             model.addAttribute("itemModels", itemModels);
             model.addAttribute("itemManufacturers", itemManufacturers);
             model.addAttribute("sizingTypes",sizingTypes);
-
+            model.addAttribute("sizingTypesShoe",sizingTypesShoe);
             return "offerForm";
         }
         offer.setDateTime(LocalDate.now());
@@ -108,10 +111,13 @@ public class HomeController {
                 List<ItemModel> itemModels = offersService.getItemModels();
                 List<ItemManufacturer> itemManufacturers = offersService.getItemManufacturers();
                 List<SizingType> sizingTypes = offersService.getSizingTypes();
+                List<SizingTypeShoe> sizingTypesShoe = offersService.getShoeSizingTypes();
 
                 model.addAttribute("itemModels", itemModels);
                 model.addAttribute("itemManufacturers", itemManufacturers);
                 model.addAttribute("sizingTypes",sizingTypes);
+                model.addAttribute("sizingTypesShoe",sizingTypesShoe);
+
                 Offer offer = offersService.getOffer(id);
                 model.addAttribute("offer", offer);
                 model.addAttribute("header", "Edycja ogłoszenia");
@@ -131,9 +137,13 @@ public class HomeController {
             List<ItemModel> itemModels = offersService.getItemModels();
             List<ItemManufacturer> itemManufacturers = offersService.getItemManufacturers();
             List<SizingType> sizingTypes = offersService.getSizingTypes();
+            List<SizingTypeShoe> sizingTypesShoe = offersService.getShoeSizingTypes();
+
             model.addAttribute("itemModels", itemModels);
             model.addAttribute("itemManufacturers", itemManufacturers);
             model.addAttribute("sizingTypes",sizingTypes);
+            model.addAttribute("sizingTypesShoe",sizingTypesShoe);
+
             return "offerForm";
         }
         offersService.saveOffer(offer);

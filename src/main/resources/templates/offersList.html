@@ -15,7 +15,7 @@
                         "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Polish.json"
                     },
                     "columnDefs": [
-                        {"orderable": false, "targets": [1, 2,7]}
+                        {"orderable": false, "targets": [1,4 ,2,7]}
                     ]
 
                 });
@@ -57,7 +57,8 @@
             <td th:text="${offer.model.manufacturer.name}"></td>
             <td th:text="${offer.model.name}"></td>
             <td th:text="${offer.year}"></td>
-            <td th:text="${offer.model.sizing.getSize()}"></td>
+            <td th:if="${offer.model.is_shoe}" th:text="${offer.model.shoeSizing.size_eu}"></td>
+            <td th:unless="${offer.model.is_shoe}" th:text="${offer.model.sizing.getSize()}"></td>
             <td class="text-right" th:attr="data-order=${offer.price}">
                 <span th:text="${#numbers.formatDecimal(offer.price, 0, 'WHITESPACE', 0,'COMMA')}"></span>
                 zł

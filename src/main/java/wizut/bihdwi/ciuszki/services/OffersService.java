@@ -1,10 +1,7 @@
 package wizut.bihdwi.ciuszki.services;
 
 import org.springframework.stereotype.Service;
-import wizut.bihdwi.ciuszki.jpa.ItemModel;
-import wizut.bihdwi.ciuszki.jpa.Offer;
-import wizut.bihdwi.ciuszki.jpa.SizingType;
-import wizut.bihdwi.ciuszki.jpa.ItemManufacturer;
+import wizut.bihdwi.ciuszki.jpa.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -35,7 +32,7 @@ public class OffersService {
     }
 
     public List<ItemModel> getItemModels() {
-        return em.createQuery("select itemModel from ItemModel itemModel order by itemModel.name", ItemModel.class).getResultList();
+        return em.createQuery("select itemModel from ItemModel itemModel order by itemModel.id", ItemModel.class).getResultList();
     }
 
     public List<ItemModel> getItemModels(int manufacturerId) {
@@ -48,7 +45,9 @@ public class OffersService {
     public List<SizingType> getSizingTypes() {
         return em.createQuery("select sizingType from SizingType sizingType order by sizingType.id", SizingType.class).getResultList();
     }
-
+    public List<SizingTypeShoe> getShoeSizingTypes() {
+        return em.createQuery("select sizingTypeShoe from SizingTypeShoe sizingTypeShoe order by sizingTypeShoe.id", SizingTypeShoe.class).getResultList();
+    }
 
     public Offer getOffer(int id) {
         return em.find(Offer.class, id);

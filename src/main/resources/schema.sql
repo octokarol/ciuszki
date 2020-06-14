@@ -8,13 +8,18 @@ create table item_manufacturer
 create table sizing_type
 (
     id      integer auto_increment primary key,
-    size    varchar(30),
+    size    varchar(30)
+);
+
+create table sizing_type_shoe
+(
+    id      integer auto_increment primary key,
     size_us float,
     size_uk float,
     size_eu float,
     size_cm float,
     size_br float,
-    size_cn float
+    size_jp float
 );
 
 create table item_model
@@ -26,10 +31,10 @@ create table item_model
     colour          varchar(30),
     cut             varchar(30),
     gender          varchar(30),
-
     manufacturer_id integer,
     sizing_id       integer,
-
+    shoe_sizing_id  integer,
+    foreign key (shoe_sizing_id) references sizing_type_shoe (id),
     foreign key (sizing_id) references sizing_type (id),
     foreign key (manufacturer_id) references item_manufacturer (id)
 );

@@ -18,10 +18,7 @@ public class ItemModel {
     @Column(name = "name")
     private String name;
 
-    @NotNull
-    @Size(max = 30)
-    @Column(name = "is_shoe")
-    private Boolean is_shoe;
+
 
     @NotNull
     @Size(max = 30)
@@ -42,16 +39,25 @@ public class ItemModel {
     @Column(name = "gender")
     private String gender;
 
+    @NotNull
+    @Size(max = 30)
+    @Column(name = "is_shoe")
+    private Boolean is_shoe;
 
     @NotNull
     @JoinColumn(name = "manufacturer_id", referencedColumnName = "id")
     @ManyToOne
     private ItemManufacturer manufacturer;
 
-    @NotNull
     @JoinColumn(name = "sizing_id", referencedColumnName = "id")
     @ManyToOne
     private SizingType sizing;
+
+    @JoinColumn(name = "shoe_sizing_id", referencedColumnName = "id")
+    @ManyToOne
+    private SizingTypeShoe shoeSizing;
+
+
 
     public ItemModel() {
     }
@@ -138,5 +144,12 @@ public class ItemModel {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+    public SizingTypeShoe getShoeSizing() {
+        return shoeSizing;
+    }
+
+    public void setShoeSizing(SizingTypeShoe shoeSizing) {
+        this.shoeSizing = shoeSizing;
     }
 }

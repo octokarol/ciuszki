@@ -60,13 +60,8 @@
                     <label style="color: red;" th:if="${#fields.hasErrors('*{price}')}">Proszę podać poprawną cenę</label>
                 </div>
             </div>
-
-
-            </div>
-
-
-
-            <div class="form-group">
+        </div>
+        <div class="form-group">
             <label class="col-sm-2 control-label">Rozmiar:</label>
             <div class="col-sm-4">
                 <select class="form-control" th:field="*{model.sizing.id}">
@@ -75,16 +70,22 @@
                     </option>
                 </select>
             </div>
+            <label class="col-sm-2 control-label">Rozmiar buta:</label>
+            <div class="col-sm-4">
+                <select class="form-control" th:field="*{model.shoeSizing.id}">
+                    <option th:each="cm : ${sizingTypesShoe}" th:text="${cm.size_eu}"
+                            th:value="${cm.id}">
+                    </option>
+                </select>
+            </div>
             <label class="col-sm-2 control-label">Producent:</label>
-
-                <div class="col-sm-4">
+            <div class="col-sm-4">
                 <select class="form-control" th:field="*{model.manufacturer.id}">
                     <option th:each="cm : ${itemManufacturers}" th:text="${cm.name}"
                             th:value="${cm.id}">
                     </option>
                 </select>
-
-                </div>
+            </div>
         </div>
         <div class="form-group">
             <label class="col-sm-2 control-label">Opis:</label>

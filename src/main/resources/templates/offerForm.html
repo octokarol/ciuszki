@@ -6,6 +6,7 @@
     <title th:text="${header}"></title>
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script type="text/javascript" src="js/formScript.js"></script>
 </head>
 <body>
 <section layout:fragment="content">
@@ -74,16 +75,14 @@
             </div>
         </div>
         <div class="form-group">
-
             <label class="col-sm-2 control-label">Typ:</label>
             <div class="col-sm-4">
-                <select class="form-control" th:field="*{model.id}">
+                <select id="itemModelSelect" class="form-control" th:field="*{model.id}" onchange="changeSizeType();">
                     <option th:each="cm : ${itemModels}" th:text="${cm.name}"
-                            th:value="${cm.id}">
+                            th:value="${cm.id}" th:attr="data-is_shoe=${cm.is_shoe}">
                     </option>
                 </select>
             </div>
-
             <label class="col-sm-2 control-label">Cena:</label>
             <div class="col-sm-4">
                 <div class="col-sm-10" th:classappend="${#fields.hasErrors('*{price}')?'has-error':''}">
@@ -107,22 +106,26 @@
 <!--            </div>-->
 <!--        </div>-->
         <div class="form-group">
-            <label class="col-sm-2 control-label">Rozmiar:</label>
-            <div class="col-sm-4">
+            <span id="otherSize">
+                <label class="col-sm-2 control-label">Rozmiar:</label>
+                <div class="col-sm-4">
                 <select class="form-control" th:field="*{sizing.id}">
                     <option th:each="cm : ${sizingTypes}" th:text="${cm.size}"
                             th:value="${cm.id}">
                     </option>
                 </select>
-            </div>
-            <label class="col-sm-2 control-label">Rozmiar buta:</label>
-            <div class="col-sm-4">
+                </div>
+            </span>
+            <span id="shoeSize">
+                <label class="col-sm-2 control-label">Rozmiar buta:</label>
+                <div class="col-sm-4">
                 <select class="form-control" th:field="*{shoeSizing.id}">
                     <option th:each="cm : ${sizingTypesShoe}" th:text="${cm.size_eu}"
                             th:value="${cm.id}">
                     </option>
                 </select>
-            </div>
+                </div>
+            </span>
             <label class="col-sm-2 control-label">Producent:</label>
             <div class="col-sm-4">
                 <select class="form-control" th:field="*{manufacturer.id}">
@@ -132,6 +135,7 @@
                 </select>
             </div>
         </div>
+        <script>changeSizeType();</script>
 
         <div class="form-group">
             <label class="col-sm-2 control-label">Cena detaliczna (w dniu zakupu):</label>

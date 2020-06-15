@@ -51,8 +51,6 @@ create table offer
     colour          varchar(30),
     cut             varchar(30),
     gender          varchar(30),
-
-
     manufacturer_id integer,
     sizing_id       integer,
     shoe_sizing_id  integer,
